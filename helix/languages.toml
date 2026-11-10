@@ -3,8 +3,8 @@ name = "rust"
 
 [config]
 imports.granularity.enforce = true
-imports.granularity.group = "module"
-imports.prefix = "self"
+imports.granularity.group = "crate"
+imports.prefix = "plain"
 
 [[language]]
 name = "markdown"

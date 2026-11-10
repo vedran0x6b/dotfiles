@@ -1,0 +1,22 @@
+// Default coding layout: two side-by-side panes, 2/3 + 1/3.
+//
+// Launch with:   zellij --layout coding
+// Set as default in config.kdl:  default_layout "coding"
+//
+// The tab-bar and status-bar plugin panes are listed explicitly. A bare
+// `layout {}` does NOT inherit them, and the status bar is the only place
+// zellij shows the current input mode (e.g. "Ctrl + <g> UNLOCK" while locked).
+// Without it, locked mode is invisible and Ctrl-q silently does nothing.
+
+layout {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane split_direction="vertical" {
+        pane name="editor" size="67%" command="hx" start_suspended=true
+        pane name="shell" size="33%"
+    }
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}

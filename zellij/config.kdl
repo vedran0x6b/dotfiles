@@ -1,16 +1,36 @@
+// Zellij configuration.
+//
+// Only the settings that differ from zellij's built-in defaults are listed
+// here; everything else is inherited. Keybinds *merge* with the defaults,
+// keyed by (mode, key) -- there is no `clear-defaults=true` here, so a key you
+// don't mention keeps its default.
+//
+// To see the current defaults:  zellij setup --dump-config
+// To validate this file:       zellij setup --check
+
+// Start in locked mode: keys go straight to the focused app until Ctrl-g.
 default_mode "locked"
+
+// Edit the scrollback buffer with helix.
 scrollback_editor "/usr/bin/hx"
 
-keybinds clear-defaults=false {
+// Skip the startup tips.
+show_startup_tips false
+
+// Show 0.44-style pane frames
+pane_frame_style "full"
+
+keybinds {
+    // Navigation and in every mode, including `locked`.
     shared {
-        bind "Alt h" { MoveFocus "left"; }
-        bind "Alt l" { MoveFocus "right"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt j" { MoveFocus "down"; }
-
-        bind "Ctrl tab" { FocusNextPane; }
-
-        bind "Alt n" { NewPane; }
         bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt h" { MoveFocus "Up"; }
+        bind "Alt j" { FocusNextPane; }
+        bind "Alt k" { FocusPreviousPane; }
+        bind "Alt l" { MoveFocus "Down"; }
+        bind "Alt n" { NewPane; }
     }
 }
+
+// Use the coding layout by default.
+default_layout "coding"

@@ -5,4 +5,4 @@ inherits = "sonokai"
 "ui.virtual.jump-label" = { fg = "black", bg = "yellow", modifiers = ["bold"] }
 
 [palette]
-bg0 = "#322a2d"
+bg0 = "#232323"
