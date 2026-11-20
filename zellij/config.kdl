@@ -20,6 +20,12 @@ show_startup_tips false
 // Show 0.44-style pane frames
 pane_frame_style "full"
 
+ui {
+    pane_frames {
+        border_style "heavy"
+    }
+}
+
 keybinds {
     // Navigation and in every mode, including `locked`.
     shared {
@@ -34,3 +40,4 @@ keybinds {
 
 // Use the coding layout by default.
 default_layout "coding"
+on_quit "quit"
